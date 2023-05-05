@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mylivenesspod
+  name: mylivenesspod
+spec:
+  containers:
+  - image: nginx
+    name: mylivenesspod
+    resources: {}
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 80
+      periodSeconds: 5
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
